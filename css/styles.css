@@ -437,13 +437,12 @@ img {
 /*===============================================================
           contact section styles
 ==================================================================*/
-
 .contact-section-title {
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   margin-bottom: 3em;
+   margin-bottom: 2em;
 }
 
 .contact-title {
@@ -470,8 +469,208 @@ img {
    hyphens: auto;
 
 }
-@media screen and (min-width:525px) and (max-width:542px) {
+
+@media screen and (min-width: 525px) and (max-width: 542px) {
    .contact-paragraph {
       max-width: 45ch
    }
+}
+
+.contact-section-bottom {
+   position: relative;
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+@media only screen and (max-width: 1540px) {
+   .contact-section-bottom {
+      flex-basis: 66.667%;
+   }
+}
+
+.contact-form-group {
+   position: relative;
+   width: 66.667%;
+   height: fit-content;
+}
+
+@media only screen and (max-width: 1199px) {
+   .contact-form-group {
+      width: 90%;
+   }
+}
+
+.contact-form {
+   position: relative;
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.contact-form-content {
+   position: relative;
+   width: 98%;
+   margin: 20px 3%;
+}
+
+.contact-form-content-textarea {
+   position: relative;
+   width: 98%;
+   height: 85px;
+   margin: 20px 3%;
+}
+
+/*
+.utils-effect-07 {
+   position: relative;
+   width: 100%;
+   display: inline-block;
+   padding: 8px 16px;
+   font: 20/1.5 var(--font-body);
+   letter-spacing: var(--ls-letter-spacing-100);
+   color: var(--color-neutral-800);
+   background-color: transparent;
+   !*background-color: var(--color-primary-300);*!
+   !*border: 0;*!
+   !*border-bottom: 1px solid var(--clr-neutral-500);*!
+   border: 1px solid var(--color-neutral-500);
+   border-radius: var(--br-border-radius-300);
+
+}
+
+.utils-effect-07~.focus-background-07 {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 0;
+   height: 100%;
+   z-index: -1;
+   background-color: var(--color-neutral-100);
+   transition: 0.4s;
+}
+.utils-effect-07:focus~.focus-background-07,
+.has-content.utils-effect-07~.focus-background-07 {
+   width: 100%;
+   transition: 0.4s;
+}
+.utils-effect-07~label {
+   position: absolute;
+   left: 8px;
+   width: 100%;
+   top: 8px;
+   font-weight: 600;
+   color: var(--color-neutral-900);
+   transition: 0.3s;
+   !*z-index: -1;*!
+   letter-spacing: var(--ls-letter-spacing-100);
+}
+.utils-effect-07:focus~label,
+.has-content.utils-effect-07~label {
+   top: -18px;
+   font-size: 14px;
+   color: var(--color-neutral-900);
+   transition: 0.3s;
+}*/
+
+
+.utils-effect-07 {
+   position: relative;
+   width: 100%;
+   display: inline-block;
+   padding: 8px 16px;
+   font: 20/1.5 var(--font-body);
+   letter-spacing: var(--ls-letter-spacing-100);
+   color: var(--color-neutral-800);
+   background-color: transparent;
+   border: 1px solid var(--color-neutral-500);
+   border-radius: var(--br-border-radius-300);
+
+}
+
+.utils-effect-07 ~ .focus-background-07 {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 0;
+   height: 100%;
+   z-index: -1;
+   background-color: var(--color-neutral-200);
+   transition: 0.4s;
+}
+
+.utils-effect-07:focus ~ .focus-background-07,
+.has-content.utils-effect-07 ~ .focus-background-07 {
+   width: 100%;
+   transition: 0.4s;
+}
+
+.utils-effect-07 ~ label {
+   position: absolute;
+   left: 8px;
+   width: 100%;
+   top: 8px;
+   font-weight: 400;
+   color: var(--color-neutral-800);
+   transition: 0.3s;
+   /*z-index: -1;*/
+   letter-spacing: var(--ls-letter-spacing-100);
+}
+
+.utils-effect-07:focus ~ .focus-background-07,
+.utils-effect-07.has-content ~ .focus-background-07 {
+   width: 100%;
+   font-weight: 600;
+   transition: 0.4s;
+}
+
+.utils-effect-07:focus ~ label,
+.utils-effect-07.has-content ~ label {
+   top: -18px;
+   font-size: 14px;
+   font-weight: 600;
+   color: var(--color-primary-900);
+   transition: 0.3s;
+}
+
+.contact-form-button {
+   padding: 16px 32px;
+   font-family: "Montserrat", sans-serif;
+   font-size: medium;
+   border: 1px solid hsl(210, 0%, 18%);
+   outline: none;
+   color: hsl(210, 0%, 18%);
+   background-color: hsl(210, 0%, 68%);
+   cursor: pointer;
+   /*transition: all 0.5s ease-in-out;*/
+   background: linear-gradient(90deg, var(--color-primary-700) 0%, var(--color-primary-700) 50%, var(--color-primary-900) 50%, var(--color-primary-900) 100%);
+   background-repeat: no-repeat;
+   background-size: 200% 100%;
+   background-position: right bottom;
+   font-weight: 600;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   color: hsl(210, 0%, 98%);
+   border-radius: 5px;
+   box-shadow: 5px 3px 21px -1px rgba(34, 40, 45, 0.25), 5px 3px 21px -1px rgba(34, 40, 45, 0.25);
+   transition: background-position 0.25s ease-out;
+}
+
+.contact-form-button:hover,
+.contact-form-button:focus {
+   cursor: pointer;
+   color: hsl(210, 0%, 78%);
+   color: hsl(210, 0%, 88%);
+   color: var(--color-neutral-000);
+
+
+}
+
+.contact-form-button:hover {
+   background-position: left bottom;
 }

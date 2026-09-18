@@ -1,11 +1,13 @@
 <!doctype html>
-<html lang='en-US' dir='ltr'>
+<html dir='ltr' lang='en-US'>
 <head>
     <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta name='author' content='Mahdi Abdurrahman'>
-    <meta name='description' content='Interactive form validation with responsive Flexbox and Grid layout, real-time key event feedback, and custom animated notifications for clear user guidance.'>
-    <meta name='keywords' content='Form Validation, Flexbox, Grid Layout, Key Event Feedback, Animated Notifications'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta content='Mahdi Abdurrahman' name='author'>
+    <meta content='Interactive form validation with responsive Flexbox and Grid layout, real-time key event feedback, and custom animated notifications for clear user guidance.'
+          name='description'>
+    <meta content='Form Validation, Flexbox, Grid Layout, Key Event Feedback, Animated Notifications'
+          name='keywords'>
     <title>Form Validation</title>
     <!-- favicon -->
     <link href='favicon.ico' rel='icon' sizes='64x64'>
@@ -32,10 +34,58 @@
         <div class='contact-section-title'>
             <h2 class='contact-title'>Contact<span class='brand-color'>Us</span></h2>
             <h5 class='contact-paragraph'>
-                We want to build a website that works as hard as you do. Tell us what you need, what is not working for you, and where you want to go next. We will get back to you with the best next step.
+                We want to build a website that works as hard as you do. Tell us what
+                you need, what is not working for you, and where you want to go next.
+                We will get back to you with the best next step.
             </h5>
         </div>
-        <!-- begins contact form -->
+        <!-- begins contact bottom -->
+        <div class='contact-section-bottom'>
+            <div class='contact-form-group' id='contact-form-group'>
+                <form action='' class='contact-form' id='contact-form'>
+                    <div class='contact-form-content js-effect-07'>
+                        <input class='utils-effect-07' id='input-01'
+                               name='fullName'
+                               placeholder='' type='text'/>
+                        <label for='input-01'>Full name</label>
+                        <span class='focus-background-07'></span>
+                        <span class='contact-form-input-prompt'
+                              id='contact-form-name-prompt'>&nbsp;</span>
+                    </div>
+                    <div class='contact-form-content js-effect-07'>
+                        <input class='utils-effect-07' id='input-02'
+                               name='email'
+                               placeholder='' type='text'/>
+                        <label for='input-02'>Email</label>
+                        <span class='focus-background-07'></span>
+                        <span class='contact-form-input-prompt'
+                              id='contact-form-email-prompt'>&nbsp;</span>
+                    </div>
+                    <div class='contact-form-content-textarea js-effect-07'>
+                                <textarea class='utils-effect-07'
+                                          id='contact-form-message'
+                                          maxlength='160' name='message'
+                                          placeholder='' rows='3'
+                                          type='textarea'></textarea>
+                        <label for='contact-form-message'>Message</label>
+                        <span class='focus-background-07'></span>
+                        <span class='contact-form-input-prompt-textarea'
+                              id='contact-form-message-prompt'>&nbsp;</span>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    <div class='contact-form-content'>
+                        <input class='contact-form-button submit'
+                               id='contact-form-submit'
+                               type='button'
+                               value='Send Message'>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
 
