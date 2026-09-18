@@ -640,34 +640,28 @@ img {
 
 .contact-form-button {
    padding: 16px 32px;
-   font-family: "Montserrat", sans-serif;
+   font-family: var(--font-body), sans-serif;
    font-size: medium;
-   border: 1px solid hsl(210, 0%, 18%);
-   outline: none;
-   color: hsl(210, 0%, 18%);
-   background-color: hsl(210, 0%, 68%);
-   cursor: pointer;
-   /*transition: all 0.5s ease-in-out;*/
-   background: linear-gradient(90deg, var(--color-primary-700) 0%, var(--color-primary-700) 50%, var(--color-primary-900) 50%, var(--color-primary-900) 100%);
-   background-repeat: no-repeat;
-   background-size: 200% 100%;
-   background-position: right bottom;
    font-weight: 600;
    text-transform: uppercase;
    letter-spacing: 1px;
    color: hsl(210, 0%, 98%);
+   background: linear-gradient(90deg, var(--color-primary-700) 0%, var(--color-primary-700) 50%, var(--color-primary-900) 50%, var(--color-primary-900) 100%);
+   background-repeat: no-repeat;
+   background-size: 200% 100%;
+   background-position: right bottom;
    border-radius: 5px;
+   border: 1px solid hsl(210, 0%, 18%);
+   cursor: pointer;
+   outline: none;
    box-shadow: 5px 3px 21px -1px rgba(34, 40, 45, 0.25), 5px 3px 21px -1px rgba(34, 40, 45, 0.25);
-   transition: background-position 0.25s ease-out;
+   transition: background-position 0.25s var(--tf-ease-in-out), color 0.5s var(--tf-ease-in-out);
 }
 
 .contact-form-button:hover,
 .contact-form-button:focus {
    cursor: pointer;
-   color: hsl(210, 0%, 78%);
-   color: hsl(210, 0%, 88%);
    color: var(--color-neutral-000);
-
 
 }
 
