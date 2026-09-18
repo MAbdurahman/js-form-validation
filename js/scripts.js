@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
    const successColor = '#166534';
    const alertColor = '#991B1B';
    const toastContainer = document.querySelector('.toast-container');
-   const submitButton = document.getElementById('contact-form-submit');
    const contactForm = document.getElementById('contact-form');
 
    if (!toastContainer) {
@@ -47,13 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
       input.classList.toggle('has-content', input.value.trim() !== '');
    }
 
-   function removeHasContentClassFromElements() {
-      document.querySelector('.utils-effect-07').value = '';
-      document.querySelectorAll('.js-effect-07 .utils-effect-07').forEach(function(element) {
-         element.classList.remove('has-content');
-      });
-   }
-
    inputs.forEach((input) => {
       updateInputState(input); // Handles values already present on load.
 
@@ -66,16 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
    });
 
-   /*function getMessagePrompt(message, elementId, color) {
-      document.getElementById(elementId).innerHTML = message;
-      document.getElementById(elementId).style.color = color;
-   }*/
    function getMessagePrompt(message, elementId, color) {
       const prompt = document.getElementById(elementId);
       prompt.textContent = message;
       prompt.style.color = color;
    }
-
 
    function validateName() {
       let name = nameInput.value.trim();
@@ -230,9 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       performValidForm();
    }
-
-   ;
-
 
 
    nameInput.addEventListener('keyup', validateName);

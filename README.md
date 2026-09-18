@@ -14,3 +14,7 @@
 - [x] Normalize.css
 - [x] Google Fonts
 - [x] Mobile Friendly
+
+
+
+<img width="800" height="376" alt="Image" src="https://github.com/user-attachments/assets/fa074240-6153-4a6d-862e-4a0e5f07e8ba" />

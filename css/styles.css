@@ -746,22 +746,22 @@ textarea.utils-effect-07 {
 .toast.error {
    gap: 8px;
    color: var(--color-neutral-000);
-   background-color: var(--color-semantic-alert-400);
-   border-left: 8px solid var(--color-semantic-alert-100);
+   background-color: var(--color-semantic-alert-200);
+   border-left: 8px solid var(--color-semantic-alert-400);
 }
 
 .toast.warn {
    gap: 8px;
    color: var(--color-neutral-000);
-   background-color: var(--color-semantic-warn-400);
-   border-left: 8px solid var(--color-semantic-warn-100);
+   background-color: var(--color-semantic-warn-200);
+   border-left: 8px solid var(--color-semantic-warn-400);
 }
 
 .toast.inform {
    gap: 8px;
    color: var(--color-neutral-000);
-   background-color: var(--color-semantic-inform-400);
-   border-left: 8px solid var(--color-semantic-inform-100);
+   background-color: var(--color-semantic-inform-200);
+   border-left: 8px solid var(--color-semantic-inform-400);
 }
 
 .toast.success::after {
