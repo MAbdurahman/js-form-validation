@@ -3,46 +3,6 @@
 document.addEventListener('DOMContentLoaded', () => {
    console.log('DOMContentLoaded is loaded and ready to use');
 
-
-
-   /****************** effect 07 scripts ******************/
-
-   /*let utilsEffect07 = document.querySelector('.utils-effect-07');
-   const utilsEffect07List = document.querySelectorAll('.js-effect-07 .utils-effect-07');*/
-
-   /*console.log(utilsEffect07)*/
-   /*console.log(utilsEffect07List)*/
-
-
-   /*document.querySelector('.utils-effect-07').value = '';*/
-
-   /*document.querySelectorAll('.js-effect-07 .utils-effect-07').forEach(function(element) {
-      element.addEventListener('focusout', function() {
-         if (this.value !== '') {
-            this.classList.add('has-content');
-
-
-         } else {
-            this.classList.remove('has-content');
-
-         }
-      });
-   });*/
-   /*utilsEffect07.value = '';
-
-   utilsEffect07List.forEach(function(element) {
-      element.addEventListener('focusout', function() {
-         if (this.value !== '') {
-            this.classList.add('has-content');
-            console.log(this)
-
-         } else {
-            this.classList.remove('has-content');
-            console.log(this)
-
-         }
-      });
-   });*/
    const fullnamePattern = /^([a-zA-Z-]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{1,}\s?([a-zA-Z]{1,})?)(,? (?:[JS]r\.?|II|III|IV))?$/g;
    const emailPattern = /^[!A-Z0-9#$&?*^~_%+-]+(\.[A-Z0-9!_%+-^]+)*?@[A-Z0-9-]+([A-Z0-9.-])*\.[A-Z]{2,}$/i;
 
@@ -66,6 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
    const alertColor = '#991B1B';
    const toastContainer = document.querySelector('.toast-container');
    const submitButton = document.getElementById('contact-form-submit');
+   const contactForm = document.getElementById('contact-form');
+
+   if (!toastContainer) {
+      console.error('Toast container not found!');
+      return;
+   }
+
+   const icons = {
+      success: 'fa-circle-check',
+      error: 'fa-circle-xmark',
+      warn: 'fa-triangle-exclamation',
+      inform: 'fa-circle-info'
+   };
 
    /*************************** effect 07 scripts ***************************/
    const inputs = document.querySelectorAll('.js-effect-07 .utils-effect-07');
@@ -93,10 +66,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
    });
 
-   function getMessagePrompt(message, elementId, color) {
+   /*function getMessagePrompt(message, elementId, color) {
       document.getElementById(elementId).innerHTML = message;
       document.getElementById(elementId).style.color = color;
+   }*/
+   function getMessagePrompt(message, elementId, color) {
+      const prompt = document.getElementById(elementId);
+      prompt.textContent = message;
+      prompt.style.color = color;
    }
+
 
    function validateName() {
       let name = nameInput.value.trim();
@@ -165,22 +144,99 @@ document.addEventListener('DOMContentLoaded', () => {
       return true;
    }
 
-   function performInvalidForm() {}
+   function showToast(type, messages) {
+      const toast = document.createElement('div');
+      const icon = document.createElement('i');
+      const content = document.createElement('div');
 
-   function performValidForm() {}
+      toast.className = `toast ${type}`;
+      toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
 
+      icon.className = `fa-solid ${icons[type]}`;
+      icon.setAttribute('aria-hidden', 'true');
 
-   function validateForm() {
-      if (isNameValid && isEmailValid && isMessageValid) {
-         performValidForm();
+      if (Array.isArray(messages)) {
+         const list = document.createElement('ul');
 
+         messages.forEach((message) => {
+            const item = document.createElement('li');
+            item.textContent = message;
+            list.appendChild(item);
+         });
+
+         content.appendChild(list);
       } else {
-         performInvalidForm();
-
+         content.textContent = messages;
       }
+
+      toast.append(icon, content);
+      toastContainer.appendChild(toast);
+
+      window.setTimeout(() => {
+         toast.classList.add('move-back-to-right');
+      }, 5000);
+
+      toast.addEventListener('animationend', (event) => {
+         if (event.animationName === 'move-back-to-right') {
+            toast.remove();
+         }
+      });
    }
+
+   function performInvalidForm(errors) {
+      showToast('error', errors);
+   }
+
+   function performValidForm() {
+      showToast('success', 'Thanks! Your message has been validated.');
+
+      // No email is sent. Reset only after a successful validation.
+      document.getElementById('contact-form').reset();
+
+      // Return labels to their original positions.
+      inputs.forEach((input) => {
+         updateInputState(input);
+      });
+
+      // Clear inline prompts.
+      namePrompt.textContent = '\u00A0';
+      emailPrompt.textContent = '\u00A0';
+      messagePrompt.textContent = '\u00A0';
+   }
+
+   function validateForm(event) {
+      event.preventDefault();
+
+      const errors = [];
+
+      if (!validateName()) {
+         errors.push('Enter a valid first and last name.');
+      }
+
+      if (!validateEmail()) {
+         errors.push('Enter a valid email address.');
+      }
+
+      if (!validateMessage()) {
+         errors.push(
+            `Your message must be between ${requiredMinLength} and ${requiredMaxLength} characters.`
+         );
+      }
+
+      if (errors.length > 0) {
+         performInvalidForm(errors);
+         return;
+      }
+
+      performValidForm();
+   }
+
+   ;
+
+
+
    nameInput.addEventListener('keyup', validateName);
    emailInput.addEventListener('keyup', validateEmail);
    messageInput.addEventListener('keyup', validateMessage);
-   submitButton.addEventListener('click', validateForm);
+   contactForm.addEventListener('submit', validateForm);
 });
