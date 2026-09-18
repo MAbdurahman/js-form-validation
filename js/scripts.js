@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
    const emailInput = document.getElementById('input-02');
    const messageInput = document.getElementById('textarea-input');
 
-   const requireMinLength = 10;
-   const requireMaxLength = 2000;
+   const requiredMinLength = 10;
+   const requiredMaxLength = 280;
 
    let isNameValid = false;
    let isEmailValid = false;
@@ -64,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
    const successColor = '#166534';
    const alertColor = '#991B1B';
+   const toastContainer = document.querySelector('.toast-container');
+   const submitButton = document.getElementById('contact-form-submit');
 
    /*************************** effect 07 scripts ***************************/
    const inputs = document.querySelectorAll('.js-effect-07 .utils-effect-07');
@@ -118,7 +120,67 @@ document.addEventListener('DOMContentLoaded', () => {
       return true;
    }
 
+   function validateEmail() {
+      let email = emailInput.value.trim();
+      message = '';
+
+      if (email.length === 0) {
+         message = 'Your email address is required!';
+         isEmailValid = false;
+         getMessagePrompt(message, `${emailPrompt.id}`, alertColor);
+         return false;
+      }
+      if (!email.match(emailPattern)) {
+         message = 'Please enter a valid email address!';
+         isEmailValid = false;
+         getMessagePrompt(message, `${emailPrompt.id}`, alertColor);
+         return false;
+      }
+      message = 'Valid email address';
+      isEmailValid = true;
+      getMessagePrompt(message, `${emailPrompt.id}`, successColor);
+      return true;
+   }
+
+   function validateMessage() {
+      let textAreaMessage = messageInput.value.trim();
+      message = '';
+
+      if (textAreaMessage.length < requiredMinLength) {
+         message = `Minimum ${requiredMinLength} characters required!`;
+         isMessageValid = false;
+         getMessagePrompt(message, `${messagePrompt.id}`, alertColor);
+         return false;
+      }
+      if (textAreaMessage.length > requiredMaxLength) {
+         message = `Maximum ${requiredMaxLength} characters allowed!`;
+         isMessageValid = false;
+         getMessagePrompt(message, `${messagePrompt.id}`, alertColor);
+         return false;
+      }
+      let maxRequiredCharactersLeft = requiredMaxLength - textAreaMessage.length;
+      message = `Maximum ${maxRequiredCharactersLeft} characters left`;
+      isMessageValid = true;
+      getMessagePrompt(message, `${messagePrompt.id}`, successColor);
+      return true;
+   }
+
+   function performInvalidForm() {}
+
+   function performValidForm() {}
 
 
+   function validateForm() {
+      if (isNameValid && isEmailValid && isMessageValid) {
+         performValidForm();
+
+      } else {
+         performInvalidForm();
+
+      }
+   }
    nameInput.addEventListener('keyup', validateName);
+   emailInput.addEventListener('keyup', validateEmail);
+   messageInput.addEventListener('keyup', validateMessage);
+   submitButton.addEventListener('click', validateForm);
 });
