@@ -13,6 +13,7 @@
 - [x] Regular Expressions
 - [x] Normalize.css
 - [x] Google Fonts
+- [x] FontAwesome Icons
 - [x] Mobile Friendly
 
 ### [Live preview](https://js-form-validation-pi.vercel.app/)
