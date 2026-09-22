@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!validateMessage()) {
          errors.push(
-            `Your message must be between ${requiredMinLength} and ${requiredMaxLength} characters.`
+            `Enter a message between ${requiredMinLength} and ${requiredMaxLength} characters.`
          );
       }
 
